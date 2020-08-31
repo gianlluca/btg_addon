@@ -3,3 +3,6 @@
 /io_scene_btg/__pycache__/
 .blend1
 *.pyc
+*.blend1
+*.blend
+*.btg

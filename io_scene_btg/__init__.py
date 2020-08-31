@@ -155,9 +155,6 @@ class BTG_PT_export_settings(bpy.types.Panel):
 		operator = sfile.active_operator
 
 		layout.prop(context.scene.btg_export_properties, 'max_render_size')
-		layout.prop(context.scene.btg_export_properties, 'margin_render')
-		layout.prop(context.scene.btg_export_properties, 'scale_type')
-		layout.prop(context.scene.btg_export_properties, 'super_sampling')
 
 
 class GodotProperties(PropertyGroup):
@@ -193,6 +190,35 @@ class GodotProperties(PropertyGroup):
 			default = 'Path2D'
 			)
 
+class SpriteProperties(PropertyGroup):
+	scale_type: EnumProperty(
+			name='Scale Type',
+			description='',
+			items=[('0','Scale-Up',''),('1','Scale-Down','')],
+			default='1',
+		)
+
+	super_sampling: EnumProperty(
+			name='Super Sampling',
+			description='',
+			items=[ ('16','16x',''), ('8','8x',''), ('4','4x',''), ('2','2x',''), ('1','1x','') ],
+			default='1',
+		)
+	
+	filter_size: IntProperty(
+			name='Filter Size',
+			description='Filter Size to apply into Sprite.',
+			min=0, max=32,
+			default=1,
+		)
+
+	margin_render: IntProperty(
+			name='Margin Render',
+			description='Margin Render Sprite Size.',
+			min=0, max=16,
+			default=2,
+		)
+
 class ExportProperties(PropertyGroup):
 
 	# List of operator properties, the attributes will be assigned to the class instance from the operator settings before calling
@@ -224,27 +250,6 @@ class ExportProperties(PropertyGroup):
 			default=512,
 		)
 
-	scale_type: EnumProperty(
-			name='Scale Type',
-			description='',
-			items=[('0','Scale-Up',''),('1','Scale-Down','')],
-			default='1',
-		)
-
-	super_sampling: EnumProperty(
-			name='Super Sampling',
-			description='',
-			items=[('1','1x',''),('2','2x',''),('4','4x',''),('8','8x',''),('16','16x','')],
-			default='1',
-		)
-
-	margin_render: IntProperty(
-			name='Margin Render',
-			description='Margin Render Sprite Size.',
-			min=0, max=16,
-			default=2,
-		)
-
 
 
 class GodotPropPanel(bpy.types.Panel):
@@ -261,9 +266,7 @@ class GodotPropPanel(bpy.types.Panel):
 		object = context.object
 
 		col = layout.column()
-		row = col.row(align=True)
-
-		util.add_object_panel(object, row)
+		util.add_object_panel(object, col)
 
 
 
@@ -275,6 +278,7 @@ classes = (
 	BTG_PT_export_settings,
 	ExportProperties,
 	GodotProperties,
+	SpriteProperties,
 	GodotPropPanel,
 	)
 
@@ -285,6 +289,7 @@ def register(): #Add addon to blender
 
 	bpy.types.TOPBAR_MT_file_export.append(menu_func_export)
 	bpy.types.ID.godot_properties = PointerProperty(type=GodotProperties)
+	bpy.types.Mesh.sprite_properties = PointerProperty(type=SpriteProperties)
 	bpy.types.Scene.btg_export_properties = PointerProperty(type=ExportProperties)
 
 
@@ -292,6 +297,7 @@ def unregister(): #Remove addon from blender
 
 	bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
 	del bpy.types.ID.godot_properties
+	del bpy.types.Mesh.sprite_properties
 	del bpy.types.Scene.btg_export_properties
 
 	for cls in classes:
