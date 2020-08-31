@@ -1,0 +1,269 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/btg_importer/btg_dock.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="BtgImporter" type="Control"]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -874.0
+margin_bottom = -450.0
+rect_min_size = Vector2( 180, 150 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SC" type="ScrollContainer" parent="."]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VB_Main" type="VBoxContainer" parent="SC"]
+use_parent_material = true
+margin_right = 1046.0
+margin_bottom = 630.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="Vsep" type="VSeparator" parent="SC/VB_Main"]
+margin_right = 1046.0
+margin_bottom = 3.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="FileImpLabel" type="Label" parent="SC/VB_Main"]
+margin_top = 13.0
+margin_right = 1046.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "File to Import:"
+clip_text = true
+
+[node name="HB_File_Imp" type="HBoxContainer" parent="SC/VB_Main"]
+margin_top = 37.0
+margin_right = 1046.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="File_Imp_Path" type="Label" parent="SC/VB_Main/HB_File_Imp"]
+margin_right = 984.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+clip_text = true
+
+[node name="Back_Color" type="ColorRect" parent="SC/VB_Main/HB_File_Imp/File_Imp_Path"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_File_Imp" type="Button" parent="SC/VB_Main/HB_File_Imp"]
+margin_left = 988.0
+margin_right = 1046.0
+margin_bottom = 25.0
+size_flags_vertical = 3
+text = "Change"
+
+[node name="Vsep2" type="VSeparator" parent="SC/VB_Main"]
+margin_top = 72.0
+margin_right = 1046.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 0, 15 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="HSeparator" type="ColorRect" parent="SC/VB_Main"]
+margin_top = 97.0
+margin_right = 1046.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 1, 1, 1, 0.588235 )
+
+[node name="Vsep3" type="VSeparator" parent="SC/VB_Main"]
+margin_top = 109.0
+margin_right = 1046.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 15 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="VB_Pols" type="VBoxContainer" parent="SC/VB_Main"]
+use_parent_material = true
+margin_top = 134.0
+margin_right = 1046.0
+margin_bottom = 207.0
+size_flags_horizontal = 3
+
+[node name="FileImpLabel" type="Label" parent="SC/VB_Main/VB_Pols"]
+margin_right = 1046.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Import Sprites and Polygons to all scenes."
+autowrap = true
+
+[node name="ImportAllPolygons" type="Button" parent="SC/VB_Main/VB_Pols"]
+margin_top = 18.0
+margin_right = 1046.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+text = "Import All"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vsep" type="VSeparator" parent="SC/VB_Main/VB_Pols"]
+margin_top = 52.0
+margin_right = 1046.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 0, 15 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="HSeparator" type="ColorRect" parent="SC/VB_Main/VB_Pols"]
+margin_top = 71.0
+margin_right = 1046.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 1, 1, 1, 0.588235 )
+
+[node name="Vsep2" type="VSeparator" parent="SC/VB_Main/VB_Pols"]
+visible = false
+margin_top = 102.0
+margin_right = 394.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 0, 5 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="VB_Cols" type="VBoxContainer" parent="SC/VB_Main"]
+use_parent_material = true
+margin_top = 217.0
+margin_right = 1046.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+
+[node name="FileImpLabel" type="Label" parent="SC/VB_Main/VB_Cols"]
+margin_right = 1046.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Import current scene Collisions."
+autowrap = true
+
+[node name="ImportSceneCollisions" type="Button" parent="SC/VB_Main/VB_Cols"]
+margin_top = 18.0
+margin_right = 1046.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+text = "Import Scene Collisions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vsep" type="VSeparator" parent="SC/VB_Main/VB_Cols"]
+margin_top = 52.0
+margin_right = 1046.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 0, 15 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="HSeparator" type="ColorRect" parent="SC/VB_Main/VB_Cols"]
+margin_top = 71.0
+margin_right = 1046.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 1, 1, 1, 0.588235 )
+
+[node name="Vsep2" type="VSeparator" parent="SC/VB_Main/VB_Cols"]
+visible = false
+margin_top = 102.0
+margin_right = 394.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 0, 5 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="VB_Curves" type="VBoxContainer" parent="SC/VB_Main"]
+use_parent_material = true
+margin_top = 300.0
+margin_right = 1046.0
+margin_bottom = 367.0
+size_flags_horizontal = 3
+
+[node name="FileImpLabel" type="Label" parent="SC/VB_Main/VB_Curves"]
+margin_right = 1046.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Import current scene Curves."
+autowrap = true
+
+[node name="ImportSceneCurves" type="Button" parent="SC/VB_Main/VB_Curves"]
+margin_top = 18.0
+margin_right = 1046.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+text = "Import Scene Curves"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vsep" type="VSeparator" parent="SC/VB_Main/VB_Curves"]
+margin_top = 52.0
+margin_right = 1046.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 0, 15 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="HSeparator2" type="ColorRect" parent="SC/VB_Main/VB_Curves"]
+visible = false
+margin_top = 89.0
+margin_right = 394.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 1, 1, 1, 0.588235 )
+
+[node name="Vsep2" type="VSeparator" parent="SC/VB_Main/VB_Curves"]
+visible = false
+margin_top = 89.0
+margin_right = 394.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 5 )
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 1 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+use_parent_material = true
+margin_right = 325.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 500, 300 )
+window_title = "Abrir um Arquivo"
+mode = 0
+filters = PoolStringArray( "*.btg" )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+[connection signal="pressed" from="SC/VB_Main/HB_File_Imp/Change_File_Imp" to="." method="_on_Change_File_Imp_pressed"]
+[connection signal="pressed" from="SC/VB_Main/VB_Pols/ImportAllPolygons" to="." method="_on_ImportAllPolygons_pressed"]
+[connection signal="pressed" from="SC/VB_Main/VB_Cols/ImportSceneCollisions" to="." method="_on_ImportSceneCollisions_pressed"]
+[connection signal="pressed" from="SC/VB_Main/VB_Curves/ImportSceneCurves" to="." method="_on_ImportSceneCurves_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
