@@ -204,7 +204,7 @@ def configure_render(object, center_location, sprite_path, scene_ep):
 
 	object.hide_render = True
 
-	sprite_scale = ((orthoscale * scene_ep.meter_pixel_scale) / sprite_res) / int(object.data.sprite_properties.super_sampling)
+	sprite_scale = scene_ep.meter_pixel_scale / (sprite_res * int(object.data.sprite_properties.super_sampling)) * orthoscale
 
 	render_data = {
 		'sprite_scale' : round(sprite_scale, 3),
