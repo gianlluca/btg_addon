@@ -283,9 +283,13 @@ func get_scene_json(json, scene_path : Array):
 			else:
 				scene_path.remove(0)
 				return get_scene_json(json["children"], scene_path)
+		else:
+			return null
 	else:
 		for json_dict in json:
-			return get_scene_json(json_dict, scene_path)
+			var result = get_scene_json(json_dict, scene_path)
+			if(result != null):
+				return result
 
 
 func get_nodes_json(json, scene_path : Array, node_type : String, nodes : Array):
